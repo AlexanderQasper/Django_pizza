@@ -2,8 +2,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('leo/', views.leo),
-    path('taurus/', views.taurus),
-    path('gemini/', views.gemini),
-    path('cancer/', views.cancer),
+    path('<zodiac_sign>/', views.get_zodiac_info),
 ]
