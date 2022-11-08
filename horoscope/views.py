@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-
+from dataclasses import dataclass
 
 dict_zodiac = {
     'leo': 'Знак зодиака - ЛЕВ!',
@@ -26,10 +26,26 @@ def index(request):
     return HttpResponse(response)
 
 
+@dataclass
+class Person:
+    name: str
+    age: int
+
+    def __str__(self):
+        return f'This is {self.name}'
+
+
 def get_zodiac_info(request, zodiac_sign: str):
-    descrption = dict_zodiac.get(zodiac_sign)
+    description = dict_zodiac.get(zodiac_sign)
     data = {
-        'description_zodiac': descrption,
+        'description_zodiac': description,
+        'sign': zodiac_sign.title(),
+        'my_int': 111,
+        'my_float': 2.3,
+        'my_list': [1, 2, 3, 4],
+        'my_tuple': (1, 2, 3, 4, 5),
+        'my_dict': {'name': 'Jack', 'age': 40},
+        'my_class': Person('Will', 55),
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 

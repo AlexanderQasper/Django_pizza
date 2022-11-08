@@ -2,11 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Гороскоп </title>
+    <title> Гороскоп для {{sign | capfirst }}</title>
 </head>
 <body>
-<h1>Приложение "гороскоп</h1>
-<h2>{{description_zodiac}}</h2>
+<h1>Приложение "Гороскоп"</h1>
+{% if description is None %}
+    <h2> Неправильный знак Зодиака {{sign | upper }} </h2>
+{% else %}
+    <h2>{{description_zodiac}}</h2>
+{% endif %}
+
+{% if my_list|length >= 3 %}
+    <p> Список из 3х или более элементов - {{my_list}} </p>
+{% elif my_list|length == 2 %}
+    <p> Список из 2х элементов - {{my_list}} </p>
+{% elif my_list|length == 1 %}
+    <p> Список из 1 элемента </p>
+{% else %}
+    <p> {{ description|title|safe }} </p>
+{% endif %}
+
+<p>Число {{my_int | add:"100"}} </p>
+<p>Дробное число {{my_float }} </p>
+<p> Список {{my_list }} </p>
+<p>Кортеж {{my_tuple }} </p>
+<p>Словарь {{my_dict}}, ключ - {{my_dict.name}} </p>
+<p>Экземпляр класса {{my_class}} {{my_class.age}} </p>
 </body>
 
 </html>
