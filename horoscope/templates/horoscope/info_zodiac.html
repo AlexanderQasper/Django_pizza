@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load static  %}
 
 {% block title %}
 Гороскоп для {{ sign|upper }}
+{% endblock %}
+
+{% block css_add %}
+<link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}">
 {% endblock %}
 
 {% block content %}
