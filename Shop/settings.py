@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'horoscope'
+    'horoscope',
+    'movie_app',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
