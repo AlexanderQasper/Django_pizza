@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from horoscope import views
+from movie_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('horoscope/', include('horoscope.urls')),
+    path('movies/', views.show_all_movie),
 ]
