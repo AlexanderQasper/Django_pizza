@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from horoscope import views
 from movie_app import views
 
 urlpatterns = [
