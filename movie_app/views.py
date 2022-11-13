@@ -5,7 +5,7 @@ from .models import Movies
 # Create your views here.
 
 def show_all_movie(request):
-    movies = Movies.objects.all()
+    movies = Movies.objects.order_by('name')
     # for movie in movies:
     #     movie.save() - для слэга всей базы имён во время вызова
     return render(request, 'movie_app/all_movies.html', {

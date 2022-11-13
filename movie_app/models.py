@@ -9,7 +9,7 @@ class Movies(models.Model):
     rating = models.IntegerField()
     year = models.IntegerField(null=True)
     budget = models.IntegerField(default=1000000)
-    slug = models.SlugField(default='', null=False)
+    slug = models.SlugField(default='', null=False, db_index=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
