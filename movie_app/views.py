@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Movies
 
 
@@ -12,7 +12,7 @@ def show_all_movie(request):
 
 
 def show_one_movie(request, id_movie: int):
-    movie = Movies.objects.get(id=id_movie)
+    movie = get_object_or_404(Movies, id=id_movie)
     return render(request, 'movie_app/one_movie.html', {
         'movie': movie
     })

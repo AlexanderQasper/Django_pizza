@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('horoscope/', include('horoscope.urls')),
     path('movies/', views.show_all_movie),
-    path('movie/<int:id_movie>', views.show_one_movie),
+    path('movie/<int:id_movie>', views.show_one_movie, name='movie-detail'),
 ]
+
+
