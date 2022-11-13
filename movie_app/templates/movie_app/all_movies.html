@@ -8,7 +8,7 @@
 <ul>
     {% for movie in movies %}
     <!-- можно обращаться к movie вообще или  к конкретным столбцам, вот так movie.name, movie.year etc -->
-    <li><a href="{% url 'movie-detail' movie.id %}">{{movie.name}}</a>, рейтинг - {{movie.rating}}, год - {{movie.year|default:"Неизвестен"}}</li>
+    <li><a href="{{ movie.get_url }}">{{movie.name}}</a>, рейтинг - {{movie.rating}}, год - {{movie.year|default:"Неизвестен"}}</li>
     {% endfor %}
 </ul>
 
