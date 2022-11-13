@@ -10,7 +10,8 @@ def show_all_movie(request):
     agg = movies.aggregate(Avg('budget'), Max('rating'), Min('rating'), Max('year'), Min('year'))
     return render(request, 'movie_app/all_movies.html', {
         'movies': movies,
-        'agg' : agg
+        'agg' : agg,
+        'total': movies.count()
     })
 
 
