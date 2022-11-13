@@ -7,10 +7,19 @@
 
 <ul>
     {% for movie in movies %}
-    <!-- можно обращаться к movie вообще или  к конкретным столбцам, вот так movie.name, movie.year etc -->
-    <li><a href="{{ movie.get_url }}">{{movie.name}}</a>, рейтинг - {{movie.rating}}, год - {{movie.year|default:"Неизвестен"}}</li>
+        <li>
+            <a href="{{ movie.get_url }}">{{movie.name}}</a>,
+            рейтинг - {{movie.rating}},
+            год - {{movie.year|default:"Неизвестен"}},
+            бюджет - {{movie.budget}}
+        </li>
     {% endfor %}
 </ul>
 
+<h3> Средний бюджет - {{ agg.budget__avg }} </h3>
+<h3> Максимальный год - {{ agg.year__max }} </h3>
+<h3> Минимальный год - {{ agg.year__min }} </h3>
+<h3> Максимальный рейтинг - {{ agg.rating__max }} </h3>
+<h3> Минимальный рейтинг - {{ agg.rating__min }} </h3>
 
 {% endblock %}
