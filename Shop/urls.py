@@ -22,6 +22,7 @@ urlpatterns = [
     path('horoscope/', include('horoscope.urls')),
     path('movies/', views.show_all_movie),
     path('movie/<slug:slug_movie>', views.show_one_movie, name='movie-detail'),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 
